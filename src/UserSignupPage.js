@@ -1,6 +1,21 @@
 import React from "react";
 
 class UserSignupPage extends React.Component{
+    state = {
+        username : null,
+        displayName : null,
+        password: null,
+        passwordRepeat: null
+    };
+
+    onChange = event => {
+        const value = event.target.value;
+        const name = event.target.name;
+        this.setState({
+            [name]: value
+        })
+    }
+    
     render() {
         return (
             <form>
@@ -8,19 +23,19 @@ class UserSignupPage extends React.Component{
 
                 <div>
                     <label>Username</label>
-                    <input />
+                    <input name="username" onChange={this.onChange}/>
                 </div>
                 <div>
                     <label>Display Name</label>
-                    <input />
+                    <input name="displayName" onChange={this.onChange}/>
                 </div>
                 <div>
                     <label>Password</label>
-                    <input type="password" />
+                    <input name="password" type="password" onChange={this.onChange}/>
                 </div>
                 <div>
                     <label>Password Repeat</label>
-                    <input type="password" />
+                    <input name="passwordRepeat" type="password" onChange={this.onChange}/>
                 </div>
                 <button>Sign Up</button>
             </form>
